@@ -330,7 +330,6 @@ class Switch_Dict(app_manager.RyuApp):
         self.sw = {} #(dpid, src_mac, dst_ip)=>in_port, you may use it in mission 2
         # maybe you need a global data structure to save the mapping
         # just data structure in mission 1
-        
 
     def add_flow(self, datapath, priority, match, actions, idle_timeout=0, hard_timeout=0):
         dp = datapath
