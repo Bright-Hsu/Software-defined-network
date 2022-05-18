@@ -122,6 +122,7 @@ from ryu.lib.packet import ethernet
 
 # 新建一个类LearningSwitch
 class LearningSwitch(app_manager.RyuApp):
+
 	# 指定openflow版本为v1.3
 	OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
 	def __init__(self, *args, **kwargs):
