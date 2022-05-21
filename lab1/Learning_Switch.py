@@ -5,21 +5,22 @@ from ryu.controller.handler import set_ev_cls
 from ryu.ofproto import ofproto_v1_3
 from ryu.lib.packet import packet
 from ryu.lib.packet import ethernet
+
 class LearningSwitch(app_manager.RyuApp):
-    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
-    def __init__(self, *args, **kwargs):
-        super(LearningSwitch, self).__init__(*args, **kwargs)
+	OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
+	def __init__(self, *args, **kwargs):
+		super(LearningSwitch, self).__init__(*args, **kwargs)
 		
 		# maybe you need a global data structure to save the mapping
 		self.mac_to_port = {}
 	
 	def add_flow(self, datapath, priority, match, actions):
  		dp = datapath
-		ofp = dp.ofproto
+ 		ofp = dp.ofproto
  		parser = dp.ofproto_parser
  		inst = [parser.OFPInstructionActions(ofp.OFPIT_APPLY_ACTIONS, actions)]
  		mod = parser.OFPFlowMod(datapath=dp, priority=priority, match=match, instructions=inst)
- 	    dp.send_msg(mod)
+ 		dp.send_msg(mod)
 	
 	@set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)
 	def switch_features_handler(self, ev):
