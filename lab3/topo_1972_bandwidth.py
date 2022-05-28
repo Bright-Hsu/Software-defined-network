@@ -52,7 +52,6 @@ class GeneratedTopo( Topo ):
 
 
 
-
         # add edges between switch and corresponding host
         self.addLink( s1 , h1 )
         self.addLink( s2 , h2 )
