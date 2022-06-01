@@ -140,7 +140,6 @@ class GeneratedTopo( Topo ):
 topos = { 'generated': ( lambda: GeneratedTopo() ) }
 
 # HERE THE CODE DEFINITION OF THE TOPOLOGY ENDS
-
 # the following code produces an executable script working with a remote controller
 # and providing ssh access to the the mininet hosts from within the ubuntu vm
 controller_ip = ''
