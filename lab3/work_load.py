@@ -139,6 +139,7 @@ class Workload(app_manager.RyuApp):
             self.link_info[(link.src.dpid, link.dst.dpid)] = link.src.port_no
             self.link_info[(link.dst.dpid, link.src.dpid)] = link.dst.port_no
             self.topo_map.add_edge(link.src.dpid, link.dst.dpid, hop=1, is_host=False)
+            
     @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
     def packet_in_handler(self, ev):
         msg = ev.msg
